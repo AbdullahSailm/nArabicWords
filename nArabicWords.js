@@ -89,7 +89,7 @@ if (IsSubject) {                                          // Process Subject Nam
   else if (Triplet>2)  SubjectName = space + Subject[2];  // Subject name Plural for 3-10
   else if (Triplet>0)  SubjectName = Subject[Triplet-1]+" "+TableUnits[Num_99];  // Reverse names for 1 or 2
 }
- return NumIn + SubjectName;                      // All done
+ return SubjectName + " " + parseInt(NumIn);                      // All done
 //------------------------------------------------------------------
 //    Core Function Converts 1 Triplet (1 to 999) to Arabic Words
 //------------------------------------------------------------------

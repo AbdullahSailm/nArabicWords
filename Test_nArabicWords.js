@@ -1,4 +1,4 @@
-import {nArabicWords} from "./nArabicWords.js";
+const { nArabicWords } = require("./nArabicWords.js");
 
 
 testCases1();
