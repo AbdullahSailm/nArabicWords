@@ -38,7 +38,7 @@ const TableScales =["","ألف","مليون","مليار","ترليون","كوا
       TableFemale =["","واحدة","اثنتان","ثلاث","أربع","خمس","ست","سبع","ثمان","تسع","عشر"];
 
 function nArabicWords(NumIn=0,{Feminine,Comma,SplitHund,Miah,Billions,TextToFollow,AG,Subject,Legal}={}) {
-if (NumIn == 0) return "صفر";                          // if 0 or "0" then "zero"
+if (NumIn == 0) return 0;                          // if 0 or "0" then "zero"
 let Triplet, Scale, ScalePos, ScalePlural, TableUnits, Table11_19,NumberInWords= "",IsLastEffTriplet= false,Num_99;
 const ON= "on",                         // Flag to test if Option is ON
  IsAG   = (AG===ON),                    // Option Accusative or Genitive case Grammar?
@@ -89,7 +89,7 @@ if (IsSubject) {                                          // Process Subject Nam
   else if (Triplet>2)  SubjectName = space + Subject[2];  // Subject name Plural for 3-10
   else if (Triplet>0)  SubjectName = Subject[Triplet-1]+" "+TableUnits[Num_99];  // Reverse names for 1 or 2
 }
- return NumberInWords + SubjectName;                      // All done
+ return NumIn + SubjectName;                      // All done
 //------------------------------------------------------------------
 //    Core Function Converts 1 Triplet (1 to 999) to Arabic Words
 //------------------------------------------------------------------
