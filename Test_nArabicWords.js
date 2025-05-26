@@ -362,23 +362,24 @@ function testCases10() {
     let r=0; // test tracker
 let Students = ["طالب","طالبان","طلاب","طالبًا"];
 
-r |= test(1,{Subject:Students},"طالب واحد");
-r |= test(2,{Subject:Students},"طالبان اثنان");
-r |= test(3,{Subject:Students},"ثلاثة طلاب");
-r |= test(10,{Subject:Students},"عشرة طلاب");
-r |= test(13,{Subject:Students},"ثلاثة عشر طالبًا");
-r |= test(20,{Subject:Students},"عشرون طالبًا");
-r |= test(21,{Subject:Students},"واحد وعشرون طالبًا");
-r |= test(100,{Subject:Students},"مائة طالب");
-r |= test(1000,{Subject:Students},"ألف طالب");
-r |= test(350,{Subject:Students},"ثلاثمائة وخمسون طالبًا");
-r |= test(300001,{Subject:Students},"ثلاثمائة ألف وطالب واحد");
-r |= test(300002,{Subject:Students},"ثلاثمائة ألف وطالبان اثنان");
-r |= test(300003,{Subject:Students},"ثلاثمائة ألف وثلاثة طلاب");
-r |= test(3000015,{Subject:Students},"ثلاثة ملايين وخمسة عشر طالبًا");
-r |= test(102000,{Subject:Students},"مائة وألفان طالب");
-r |= test(101000,{Subject:Students},"مائة وألف طالب");
-r |= test(101002,{Subject:Students},"مائة وألف وطالبان اثنان");
+let Employees = ["موظف","موظفين","موظفين","موظفًا"];
+r |= test(1,{Subject:Employees,numberOnly:"on"},"طالب واحد");
+r |= test(2,{Subject:Employees,numberOnly:"on"},"طالبان اثنان");
+r |= test(3,{Subject:Employees,numberOnly:"on"},"ثلاثة طلاب");
+r |= test(10,{Subject:Employees,numberOnly:"on"},"عشرة طلاب");
+r |= test(13,{Subject:Employees,numberOnly:"on"},"ثلاثة عشر طالبًا");
+r |= test(20,{Subject:Employees,numberOnly:"on"},"عشرون طالبًا");
+r |= test(21,{Subject:Employees,numberOnly:"on"},"واحد وعشرون طالبًا");
+r |= test(100,{Subject:Employees,numberOnly:"on"},"مائة طالب");
+r |= test(1000,{Subject:Employees,numberOnly:"on"},"ألف طالب");
+r |= test(350,{Subject:Employees,numberOnly:"on"},"ثلاثمائة وخمسون طالبًا");
+r |= test(300001,{Subject:Employees,numberOnly:"on"},"ثلاثمائة ألف وطالب واحد");
+r |= test(300002,{Subject:Employees,numberOnly:"on"},"ثلاثمائة ألف وطالبان اثنان");
+r |= test(300003,{Subject:Employees,numberOnly:"on"},"ثلاثمائة ألف وثلاثة طلاب");
+r |= test(3000015,{Subject:Employees,numberOnly:"on"},"ثلاثة ملايين وخمسة عشر طالبًا");
+r |= test(102000,{Subject:Employees,numberOnly:"on"},"مائة وألفان طالب");
+r |= test(101000,{Subject:Employees,numberOnly:"on"},"مائة وألف طالب");
+r |= test(101002,{Subject:Employees,numberOnly:"on"},"مائة وألف وطالبان اثنان");
 
 let Girls = ["بنت","بنتان","بنات","بنتًا"];
 
@@ -416,5 +417,6 @@ if (r==0) console.log("Test Case 11 - Option {Legal}       ....Passed.");
 //------------------
 function test(n,flags,should) {
 let result = nArabicWords(n,flags);
-if (result !== should) {console.log(`${n} Output   : ${result}\n${n} Should be: ${should}`);return 1;}
+if (result !== should) {console.log(`${n} Output   : ${result}`);return 1;}
 }
+

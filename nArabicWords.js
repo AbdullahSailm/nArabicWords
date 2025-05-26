@@ -34,10 +34,10 @@
 **********************************************************************/
 const TableScales =["","ألف","مليون","مليار","ترليون","كوادرليون","كوينتليون","سكستليون"], // Add here only
       TableScalesP=["","آلاف","ملايين","مليارات"], // Do not change this table
-      TableMale   =["","واحد","اثنان","ثلاثة","أربعة","خمسة","ستة","سبعة","ثمانية","تسعة","عشرة"],
-      TableFemale =["","واحدة","اثنتان","ثلاث","أربع","خمس","ست","سبع","ثمان","تسع","عشر"];
+      TableMale   =["","","","ثلاثة","أربعة","خمسة","ستة","سبعة","ثمانية","تسعة","عشرة"],
+      TableFemale =["","","","ثلاث","أربع","خمس","ست","سبع","ثمان","تسع","عشر"];
 
-function nArabicWords(NumIn=0,{Feminine,Comma,SplitHund,Miah,Billions,TextToFollow,AG,Subject,Legal}={}) {
+function nArabicWords(NumIn=0,{numberOnly, Feminine,Comma,SplitHund,Miah,Billions,TextToFollow,AG,Subject,Legal}={}) {
 if (NumIn == 0) return 0;                          // if 0 or "0" then "zero"
 let Triplet, Scale, ScalePos, ScalePlural, TableUnits, Table11_19,NumberInWords= "",IsLastEffTriplet= false,Num_99;
 const ON= "on",                         // Flag to test if Option is ON
@@ -49,7 +49,7 @@ const ON= "on",                         // Flag to test if Option is ON
  Taa   = IsAG ?"تي" :"تا",       Taan   = IsAG ? "تين":"تان",        // Hundred 2's مئتا/مائتا مئتان/مائتان
  Aa    = IsAG ?"ي" :"ا",         Aan    = IsAG ? "ين":"ان",          // Scale 2's الفا/مليونا الفان/مليونان
  Ethna = IsAG ?"اثني":"اثنا",    Ethnata = IsAG ? "اثنتي" : "اثنتا", // Masculine/Feminine 12 starting word
- Ethnan= IsAG ?"اثنين" : "اثنان",Ethnatan= IsAG ? "اثنتين" :"اثنتان",// Masculine/Feminine 2
+ Ethnan= IsAG ?"" : "",Ethnatan= IsAG ? "" :"",// Masculine/Feminine 2
  Woon  = IsAG ?"ين" :"ون",              // Second part of 20's to 90's
  IsSubject = Array.isArray(Subject) && Subject.length===4;        // Check for Subject Array Names
 
@@ -89,7 +89,7 @@ if (IsSubject) {                                          // Process Subject Nam
   else if (Triplet>2)  SubjectName = space + Subject[2];  // Subject name Plural for 3-10
   else if (Triplet>0)  SubjectName = Subject[Triplet-1]+" "+TableUnits[Num_99];  // Reverse names for 1 or 2
 }
- return SubjectName + " " + parseInt(NumIn);                      // All done
+ return SubjectName + " " + parseInt(NumIn);              // All done
 //------------------------------------------------------------------
 //    Core Function Converts 1 Triplet (1 to 999) to Arabic Words
 //------------------------------------------------------------------
